@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor</title>
+
+    <style>
+        div {
+            text-align: center;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            background-color: lightcyan;
+        }
+
+        table {
+            margin-top: 50px;
+            margin-left: 40%;
+            width: 20%;
+            text-align: left;
+        }
+
+        table,
+        tr {
+            border: 2px solid black;
+            border-collapse: collapse;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Convertidor</h1>
+        <input type="text" name="number" id="numero">
+        <button id="convertir" onclick="transformar()">Convertir</button>
+        <select name="unidad" id="unidad">
+            <option value="centimetros">Centimetros</option>
+            <option value="metros">Metros</option>
+            <option value="kilometros">Kilometros</option>
+            <option value="pulgadas">Pulgadas</option>
+            <option value="pies">Pies</option>
+            <option value="yardas">Yardas</option>
+            <option value="millas">Millas</option>
+        </select>
+        <br>
+
+        <table>
+
+
+            <tr>
+                <td>
+                    Centimetros:
+                </td>
+                <td id="centimetros"></td>
+            </tr>
+            <tr>
+                <td>
+                    Metros:
+                </td>
+                <td id="metros"></td>
+            </tr>
+            <tr>
+                <td>
+                    Kilometros:
+                </td>
+                <td id="kilometros"></td>
+            </tr>
+            <tr>
+                <td>
+                    Pulgadas:
+                </td>
+                <td id="pulgadas"></td>
+            </tr>
+            <tr>
+                <td>
+                    Pies:
+                </td>
+                <td id="pies"></td>
+            </tr>
+            <tr>
+                <td>
+                    Yardas:
+                </td>
+                <td id="yardas"></td>
+            </tr>
+            <tr>
+                <td>
+                    Millas:
+                </td>
+                <td id="millas"></td>
+            </tr>
+
+
+        </table>
+    </div>
+    <script>
+
+        function transformar() {
+            valor = document.getElementById("numero").value;
+            if (document.getElementById("unidad").value == "centimetros") {
+                document.getElementById("centimetros").innerHTML = valor;
+                document.getElementById("metros").innerHTML = (valor / 100);
+                document.getElementById("kilometros").innerHTML = (valor / 100000);
+                document.getElementById("pulgadas").innerHTML = (valor / 2.54);
+                document.getElementById("pies").innerHTML = (valor / 30.48);
+                document.getElementById("yardas").innerHTML = (valor / 91.44);
+                document.getElementById("millas").innerHTML = (valor / 160900);
+            } else if (document.getElementById("unidad").value == "metros") {
+                document.getElementById("centimetros").innerHTML = (valor * 100);
+                document.getElementById("metros").innerHTML = valor;
+                document.getElementById("kilometros").innerHTML = (valor / 1000);
+                document.getElementById("pulgadas").innerHTML = (valor * 39.37);
+                document.getElementById("pies").innerHTML = (valor * 3.281);
+                document.getElementById("yardas").innerHTML = (valor * 1.094);
+                document.getElementById("millas").innerHTML = (valor / 1609);
+            } else if (document.getElementById("unidad").value == "kilometros") {
+                document.getElementById("centimetros").innerHTML = (valor * 100000);
+                document.getElementById("metros").innerHTML = (valor * 1000);
+                document.getElementById("kilometros").innerHTML = valor;
+                document.getElementById("pulgadas").innerHTML = (valor * 39370);
+                document.getElementById("pies").innerHTML = (valor * 3281);
+                document.getElementById("yardas").innerHTML = (valor * 1094);
+                document.getElementById("millas").innerHTML = (valor / 1.609);
+            } else if (document.getElementById("unidad").value == "pulgadas") {
+                document.getElementById("centimetros").innerHTML = (valor * 2, 54);
+                document.getElementById("metros").innerHTML = (valor / 39.37);
+                document.getElementById("kilometros").innerHTML = (valor / 39370);
+                document.getElementById("pulgadas").innerHTML = valor;
+                document.getElementById("pies").innerHTML = (valor / 12);
+                document.getElementById("yardas").innerHTML = (valor / 36);
+                document.getElementById("millas").innerHTML = (valor / 63360);
+            } else if (document.getElementById("unidad").value == "pies") {
+                document.getElementById("centimetros").innerHTML = (valor * 30.48);
+                document.getElementById("metros").innerHTML = (valor / 3.281);
+                document.getElementById("kilometros").innerHTML = (valor / 3281);
+                document.getElementById("pulgadas").innerHTML = (valor * 12);
+                document.getElementById("pies").innerHTML = valor;
+                document.getElementById("yardas").innerHTML = (valor / 3);
+                document.getElementById("millas").innerHTML = (valor / 5280);
+            } else if (document.getElementById("unidad").value == "yardas") {
+                document.getElementById("centimetros").innerHTML = (valor * 91.44);
+                document.getElementById("metros").innerHTML = (valor / 1.094);
+                document.getElementById("kilometros").innerHTML = (valor / 1094);
+                document.getElementById("pulgadas").innerHTML = (valor * 36);
+                document.getElementById("pies").innerHTML = (valor * 3);
+                document.getElementById("yardas").innerHTML = valor;
+                document.getElementById("millas").innerHTML = (valor / 1760);
+            } else if (document.getElementById("unidad").value == "millas") {
+                valor = document.getElementById("numero").value;
+                document.getElementById("centimetros").innerHTML = (valor * 106900);
+                document.getElementById("metros").innerHTML = (valor * 1609);
+                document.getElementById("kilometros").innerHTML = (valor * 1.609);
+                document.getElementById("pulgadas").innerHTML = (valor * 63360);
+                document.getElementById("pies").innerHTML = (valor * 5280);
+                document.getElementById("yardas").innerHTML = (valor * 1760);
+                document.getElementById("millas").innerHTML = valor;
+            }
+        }
+
+    </script>
+</body>
+
+
+</html>
